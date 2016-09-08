@@ -32,6 +32,11 @@
     display: none;
 }
 
+
+li:hover {
+	transform:scale(1.1)
+}
+
 /**
  * An element with .dndPlaceholder class will be
  * added to the dnd-list while the user is dragging
