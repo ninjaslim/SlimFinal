@@ -13,6 +13,8 @@
 
     <div class="simpleDemo row">
 
+        <div id="welcomeContent" ng-show="location"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Welcome to SLIM, {{location}} Team</div>
+
         <div class="col-md-12">
             <div class="row">
                 <div ng-repeat="(listName, list) in models.lists" class="col-md-4">

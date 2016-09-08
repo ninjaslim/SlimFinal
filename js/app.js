@@ -1,4 +1,4 @@
-angular.module('slim', ['dndLists','chart.js']).controller('slimController', function ($scope,sprintTaskService) {
+angular.module('slim', ['dndLists', 'chart.js']).controller('slimController', function ($scope, sprintTaskService, geolocationService) {
 
 
     $scope.labels = ["To Do", "In Progress", "Done"];
@@ -181,5 +181,11 @@ angular.module('slim', ['dndLists','chart.js']).controller('slimController', fun
         $scope.modelAsJson = angular.toJson(model, true);
     }, true);
 
+    var locationPromise = geolocationService.getlocation();
+    locationPromise.then(function (longname) {
+        $scope.location = longname;
+    }, function (shortname) {
+        $scope.location = shortname;
+    });
     
 });
