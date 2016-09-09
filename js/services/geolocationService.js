@@ -1,15 +1,15 @@
-﻿angular.module('slim').service('geolocationService', function ($q) {
-    
-    
+﻿angular.module('slim').service('geolocationService', function($q) {
+
+
     var geolocationService = {
-        getlocation: function () {       
+        getlocation: function() {
             var deferred = $q.defer();
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    
+                navigator.geolocation.getCurrentPosition(function(position) {
+
                     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     var geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+                    geocoder.geocode({ 'latLng': latlng }, function(results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
                             if (results[0]) {
                                 for (var i = 0; i < results[0].address_components.length; i++) {
@@ -19,8 +19,7 @@
                                     if (type.indexOf("country") != -1) {
                                         if (null != longname) {
                                             deferred.resolve(longname);
-                                        }
-                                        else {
+                                        } else {
                                             deferred.resolve(shortname);
                                         }
                                     }
@@ -36,5 +35,5 @@
         }
     };
     return geolocationService;
-   
+
 });

@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <title></title>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -8,14 +9,15 @@
 
 
 </head>
+
 <body>
     <h1 style="text-align:center">Slim - Sprint Lifecycle Management</h1>
 
     <div class="simpleDemo row">
 
         <div id="welcomeContent" ng-show="location"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Welcome to SLIM, {{location}} Team</div>
-        <br ><br >
-         <div class="col-md-12">
+        <br><br>
+        <div class="col-md-12">
             <div class="row">
                 <div ng-repeat="(listName, list) in models.lists" class="col-md-4">
                     <div class="panel panel-info">
@@ -24,13 +26,9 @@
                         </div>
 
                         <ul dnd-list="list" dnd-drop="getDroppedElement($index,item,list,listName)">
-                            <li ng-repeat="item in list"
-                                dnd-draggable="item"
-                                dnd-moved="list.splice($index, 1)"
-                                dnd-effect-allowed="move" q
-                                dnd-selected="models.selected = item"
-                                ng-class="getClass(listName)">
-                                <span class="task">Task</span> : {{item.label}}<br /><span class="task">JIRA</span> : {{item.Jira}}<br /> <span class="task">Assigned To</span> :{{item.AssignedTo}}<br /> <span class="task"> Epic </span> :{{item.Epic}}<br /> <span class="task"> Estimation </span>:{{item.Estimation}}
+                            <li ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index, 1)" dnd-effect-allowed="move" q dnd-selected="models.selected = item" ng-class="getClass(listName)">
+                                <span class="task">Task</span> : {{item.label}}<br /><span class="task">JIRA</span> : {{item.Jira}}<br /> <span class="task">Assigned To</span> :{{item.AssignedTo}}<br /> <span class="task"> Epic </span> :{{item.Epic}}<br
+                                /> <span class="task"> Estimation </span>:{{item.Estimation}}
 
                             </li>
                         </ul>
@@ -39,7 +37,7 @@
 
                 </div>
             </div>
-         </div>
+        </div>
 
 
     </div>
@@ -49,15 +47,13 @@
 
             <div class="col-md-6">
                 <h1>Sprint Summary</h1>
-                <canvas id="pie" class="chart chart-pie"
-                        chart-data="data" chart-labels="labels" chart-options="options"></canvas>
+                <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options"></canvas>
 
             </div>
 
             <div class="col-md-6">
                 <h1>Sprint BurnDown</h1>
-                <canvas id="line" class="chart chart-line"
-                        chart-data="burnDownData" chart-labels="days" chart-series="series" chart-options="options"></canvas>
+                <canvas id="line" class="chart chart-line" chart-data="burnDownData" chart-labels="days" chart-series="series" chart-options="options"></canvas>
 
             </div>
 
@@ -66,4 +62,5 @@
 
     </div>
 </body>
+
 </html>
